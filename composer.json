@@ -1,0 +1,16 @@
+{
+    "name": "root/aread",
+    "autoload": {
+        "psr-4": {
+            "Root\\Aread\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Tont Z"
+        }
+    ],
+    "require": {
+        "phpoffice/phpspreadsheet": "^1.28"
+    }
+}
