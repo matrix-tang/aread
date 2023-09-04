@@ -25,7 +25,7 @@ foreach ($highData as $highKey => $highValue) {
     if ($highKey == 1 || $highValue["R"] == "undefined") {
         continue;
     }
-    $arr = explode("-", $highValue["I"], 3);
+    $arr = explode("-", $highValue["M"], 3);
     if (count($arr) >= 3) {
         $insertData = [
             "stock_id" => "{$highValue["A"]}",

@@ -18,7 +18,7 @@ $allData = readAXlsx($allFile);
 // 处理mtm数据，根据二级行业到二维数组
 $mtmArr = [];
 foreach ($mtmData as $mtmKey => $mtmValue) {
-    $arr = explode("-", $mtmValue["L"], 3);
+    $arr = explode("-", $mtmValue["P"], 3);
     $count = count($arr);
     if ($count >= 3) {
         $mtmArr[$arr[1]][] = $mtmValue;
@@ -30,13 +30,13 @@ foreach ($mtmData as $mtmKey => $mtmValue) {
 $allArr = [];
 foreach ($allData as $allKey => $allValue) {
     // print_r($allKey);
-    $arr = explode("-", $allValue["F"], 3);
+    $arr = explode("-", $allValue["J"], 3);
     $count = count($arr);
     if ($count >= 3) {
         $allArr[$arr[1]][] = $allValue;
     }
 }
-// print_r($allArr);
+//print_r($allArr);
 
 $model = new MysqliDb($config);
 $stockList = $model->where("insert_date", $date)->where("stock_type", 1)->get("stock");
@@ -44,8 +44,10 @@ if (count($stockList) > 0) {
     echo "------------------------------------------------插入动量模型，数据已经处理" . PHP_EOL;
     return;
 }
+
 // 计算动量分值
 foreach ($mtmArr as $key => $value) {
+    var_dump($value);
     // 上榜数量
     $onListCnt = count($value);
     // 所有成分股数量
