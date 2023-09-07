@@ -18,7 +18,7 @@ $allData = readAXlsx($allFile);
 // 处理mtm数据，根据二级行业到二维数组
 $mtmArr = [];
 foreach ($mtmData as $mtmKey => $mtmValue) {
-    $arr = explode("-", $mtmValue["P"], 3);
+    $arr = explode("-", $mtmValue["E"], 3);
     $count = count($arr);
     if ($count >= 3) {
         $mtmArr[$arr[1]][] = $mtmValue;
@@ -27,10 +27,10 @@ foreach ($mtmData as $mtmKey => $mtmValue) {
 // print_r($mtmArr);
 
 // 处理all数据，根据二级行业到二维数组
-$allArr = [];
+$allArr = [];;
 foreach ($allData as $allKey => $allValue) {
     // print_r($allKey);
-    $arr = explode("-", $allValue["J"], 3);
+    $arr = explode("-", $allValue["E"], 3);
     $count = count($arr);
     if ($count >= 3) {
         $allArr[$arr[1]][] = $allValue;
